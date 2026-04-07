@@ -1,0 +1,100 @@
+/* 1. Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Body styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #e0e0e0; /* light grey background */
+  padding: 2rem;
+}
+
+/* 3. Headings */
+h1, h2, h3 {
+  margin-bottom: 0.5rem;
+  color: #222; /* slightly darker grey for headings */
+}
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 4. Buttons for toggles */
+button.toggle {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #555; /* medium grey */
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  transition: background 0.2s ease;
+}
+button.toggle:hover {
+  background-color: #333; /* darker grey on hover */
+}
+
+/* 5. Cipher container */
+.cipher {
+  margin-bottom: 1.5rem;
+}
+
+/* 6. Grid layout for tool + history */
+.cipher-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #aaa; /* grey border */
+  border-radius: 10px;
+  background-color: #f0f0f0; /* very light grey background for content */
+  transition: all 0.3s ease;
+}
+
+/* 7. Hide content when hidden */
+.hidden {
+  display: none; /* override grid */
+}
+
+/* 8. Inputs and textareas */
+textarea, input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #aaa; /* grey border */
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: #eaeaea; /* soft grey input background */
+  color: #222; /* dark grey text */
+}
+
+/* Input focus effect */
+textarea:focus, input:focus {
+  outline: none;
+  border-color: #555; /* darker grey on focus */
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* 9. Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333; /* dark grey footer */
+  color: white;
+  margin-top: 2rem;
+  border-radius: 6px;
+}
+
+/* 10. Responsive grid for mobile */
+@media (max-width: 768px) {
+  .cipher-content {
+    grid-template-columns: 1fr; /* stack tool + history */
+  }
+}

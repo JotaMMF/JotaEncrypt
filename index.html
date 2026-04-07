@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Jota's Page of Encryption</title>
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <main>
+        <h1>Welcome to Jota's Encryption Page!</h1>
+        <!-- HOME -->
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome! Explore classic encryption methods and see how they work.</p>
+        </section>
+
+        <!-- CIPHERS -->
+        <section id="ciphers">
+            <h2>Ciphers</h2>
+
+            <!-- ROT13 -->
+            <article class="cipher">
+                <button class="toggle">ROT13 ▼</button>
+                <div class="cipher-content hidden">
+                    <div class="tool">
+                        <h3>ROT13 Tool</h3>
+                        <p><strong>How to Use:</strong> Enter your text into the first textarea. Click "Convert" to see
+                            the ROT13 output in the second textarea.</p>
+                        <textarea id="input_rot13" rows="4" cols="50" placeholder="Enter text here..."></textarea>
+                        <textarea id="output_rot13" rows="4" cols="50" readonly placeholder="Output..."></textarea>
+
+                        <hr>
+                        <pre><code>ROT13(L) = (L + 13) mod 26
+L = letter number (A=0, B=1, ..., Z=25)
+Applying twice returns the original text</code></pre>
+
+                        <hr>
+                        <p class="formula-explanation">
+                            ROT13 shifts each letter 13 places forward. If you pass Z, it wraps around to A. Doing it
+                            twice recovers the original text.
+                        </p>
+                    </div>
+                    <div class="history">
+                        <h3>ROT13 History</h3>
+                        <p>ROT13 became popular in early internet culture because it was a simple way to hide text from
+                            casual viewing without giving any real security. Early online communities — especially on
+                            platforms like Usenet and bulletin boards — used ROT13 to hide spoilers, answers, or
+                            offensive text from users unless they deliberately decoded it. Unlike full‑strength
+                            cryptography, ROT13 is just a specific case of a Caesar shift by 13, chosen because shifting
+                            by half the alphabet means applying it twice gets the original text back — a convenience in
+                            tools and scripts.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Caesar Cipher -->
+            <article class="cipher">
+                <button class="toggle">Caesar Cipher ▼</button>
+                <div class="cipher-content hidden">
+                    <div class="tool">
+                        <h3>Caesar Cipher Tool</h3>
+                        <p><strong>How to Use:</strong> Enter your text and select a shift value. Click "Convert" to
+                            encrypt or decrypt the text.</p>
+                        <label for="caesar_shift">Shift:</label>
+                        <input type="number" id="caesar_shift" value="3">
+                        <textarea id="input_caesar" rows="4" cols="50" placeholder="Enter text here..."></textarea>
+                        <textarea id="output_caesar" rows="4" cols="50" readonly placeholder="Output..."></textarea>
+
+                        <hr>
+                        <pre><code>Caesar(L) = (L + shift) mod 26
+L = letter number (A=0, B=1, ..., Z=25)
+shift = number of letters to move</code></pre>
+
+                        <hr>
+                        <p class="formula-explanation">
+                            Each letter is shifted by a fixed number of positions in the alphabet. Wrap around occurs
+                            after Z. Decryption is done by shifting in the opposite direction.
+                        </p>
+                    </div>
+                    <div class="history">
+                        <h3>Caesar Cipher History</h3>
+                        <p>The Caesar cipher dates back over two thousand years to the Roman period. It’s named after
+                            Julius Caesar, who used this technique as a simple substitution cipher in military
+                            correspondence, shifting each letter a fixed number of places. Historical accounts about the
+                            method are found in classical literature, and scholars believe Caesar used it to protect
+                            messages between commanders. Over centuries, the cipher spread through scholarly texts and
+                            later became an educational and recreational example of encryption.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Base64 -->
+            <article class="cipher">
+                <button class="toggle">Base64 ▼</button>
+                <div class="cipher-content hidden">
+                    <div class="tool">
+                        <h3>Base64 Tool</h3>
+                        <p><strong>How to Use:</strong> Enter text to encode or decode. Click "Convert" to see the
+                            Base64 representation or revert it back.</p>
+                        <textarea id="input_base64" rows="4" cols="50" placeholder="Enter text here..."></textarea>
+                        <textarea id="output_base64" rows="4" cols="50" readonly placeholder="Output..."></textarea>
+
+                        <hr>
+                        <pre><code>Base64 encode/decode:
+- Encode: Convert binary data into 6-bit chunks, map each chunk to A-Z,a-z,0-9,+,/
+- Decode: Map characters back to 6-bit chunks, reassemble binary data</code></pre>
+
+                        <hr>
+                        <p class="formula-explanation">
+                            Base64 splits the data into 6-bit pieces and maps each to a character. It’s designed to
+                            safely encode binary data as text for transmission over text-based systems.
+                        </p>
+                    </div>
+                    <div class="history">
+                        <h3>Base64 History</h3>
+                        <p>Base64 originally arose from a practical engineering problem: early email and
+                            telecommunication systems could only reliably transmit text, not arbitrary binary data (such
+                            as images or file attachments). To send binary data safely, engineers created binary‑to‑text
+                            encodings — and Base64 became the standardized form. It was formalized in internet email
+                            standards like MIME (Multipurpose Internet Mail Extensions) in the late 1980s, allowing
+                            attachments to be encoded into text that could travel across email systems without
+                            corruption. Later, it became widely adopted in web development and APIs for embedding data
+                            in URLs and text formats.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Vigenère Cipher -->
+            <article class="cipher">
+                <button class="toggle">Vigenère Cipher ▼</button>
+                <div class="cipher-content hidden">
+                    <div class="tool">
+                        <h3>Vigenère Cipher Tool</h3>
+                        <p><strong>How to Use:</strong> Enter a key and your text. Click "Convert" to encrypt or decrypt
+                            the message using the keyword.</p>
+                        <label for="vigenere_key">Key:</label>
+                        <input type="text" id="vigenere_key" placeholder="Enter key...">
+                        <textarea id="input_vigenere" rows="4" cols="50" placeholder="Enter text here..."></textarea>
+                        <textarea id="output_vigenere" rows="4" cols="50" readonly placeholder="Output..."></textarea>
+
+                        <hr>
+                        <pre><code>Vigenère(L_i) = (L_i + K_i) mod 26
+L_i = i-th letter number in plaintext
+K_i = i-th letter number in repeating keyword</code></pre>
+
+                        <hr>
+                        <p class="formula-explanation">
+                            Each letter is shifted by the corresponding letter in the repeated keyword. This creates a
+                            polyalphabetic substitution, making it harder to break than a simple Caesar cipher.
+                        </p>
+                    </div>
+                    <div class="history">
+                        <h3>Vigenère Cipher History</h3>
+                        <p>The Vigenère cipher represents a major advance over simple substitution methods because it
+                            uses a keyword that controls a series of shifts — effectively combining multiple Caesar
+                            ciphers. Historically, while Blaise de Vigenère’s name became attached to the cipher in
+                            later literature, the concept actually originated with Giovan Battista Bellaso in the
+                            mid‑1500s. Bellaso described the repeating‑keyword polyalphabetic method that is today
+                            commonly taught as “Vigenère.” The technique remained difficult to break for centuries until
+                            19th‑century cryptanalysts developed systematic decryption methods, marking a key moment in
+                            cryptographic history.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- XOR Cipher -->
+            <article class="cipher">
+                <button class="toggle">XOR Cipher ▼</button>
+                <div class="cipher-content hidden">
+                    <div class="tool">
+                        <h3>XOR Cipher Tool</h3>
+                        <p><strong>How to Use:</strong> Enter a numeric key and your text. Click "Convert" to encrypt or
+                            decrypt the message using XOR.</p>
+                        <label for="xor_key">Key (number):</label>
+                        <input type="number" id="xor_key" value="0">
+                        <textarea id="input_xor" rows="4" cols="50" placeholder="Enter text here..."></textarea>
+                        <textarea id="output_xor" rows="4" cols="50" readonly placeholder="Output..."></textarea>
+
+                        <hr>
+                        <pre><code>XOR encryption: C_i = P_i ⊕ K
+C_i = ciphertext letter
+P_i = plaintext letter
+K = key</code></pre>
+
+                        <hr>
+                        <p class="formula-explanation">
+                            XOR takes each letter (converted to a number) and performs a bitwise XOR with the key.
+                            Encrypting twice with the same key returns the original text because of XOR’s reversible
+                            property.
+                        </p>
+                    </div>
+                    <div class="history">
+                        <h3>XOR Cipher History</h3>
+                        <p>The XOR cipher is rooted in fundamental binary logic rather than historical secrecy like the
+                            Caesar cipher. In digital systems, the XOR (exclusive or) operation has a unique property:
+                            applying XOR with a key once encrypts data, and applying XOR with the same key again
+                            decrypts it. Because of this symmetry, XOR has become a core primitive in many modern
+                            cryptographic constructions. While a simple repeating‑key XOR cipher is insecure by itself,
+                            XOR operations show up in stream ciphers, key whitening, and encryption modes because of
+                            their mathematical simplicity and usefulness in reversible transformations.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p><!-- TODO: Add your portfolio/about text --></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Jota's Encryption Page</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
